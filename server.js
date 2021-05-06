@@ -1,17 +1,26 @@
-const express=require('express') //express import
+const express = require('express')
+const app = express()
+const http = require('http').createServer(app)
 
-const app=express()
+const PORT = process.env.PORT || 3000
 
-const http=require('http').createServer(app) // server created
-
-const PORT=process.env.PORT||3000
-
-http.listen(PORT,()=>{
-    console.log(`Server starting .. ${PORT}`)  // listen port
+http.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`)
 })
 
-app.use(express.static(__dirname+ '/public')) //middle ware
+app.use(express.static(__dirname + '/public'))
 
-app.get('/',(req , res)=>{
-    res.sendFile(__dirname+ '/index.html') // route page
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html')
+})
+
+// Socket 
+const io = require('socket.io')(http)
+
+io.on('connection', (socket) => {
+    console.log('Connected...')
+    socket.on('message', (msg) => {
+        socket.broadcast.emit('message', msg)
+    })
+
 })

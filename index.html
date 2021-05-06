@@ -3,38 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signal>> Home</title>
+    <title>Signal>>Home</title>
     <link rel="icon" href="signal.jpg">
-    <!-- main style file -->
     <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-
-    <section class="chat_section">
+    <section class="chat__section">
         <div class="brand">
-            <img src="/signal.jpg" alt="">
-            <h1>signal</h1>
+            <img height="40" src="/signal.jpg" alt="">
+            <h1>Signal</h1>
         </div>
-
-        <div class="msg-area">
-            <div class="incoming mgs-txt">
-                <h4>umesh</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-            </div>
-            <div class="outgoing mgs-txt">
-                <h4>umesh</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-            </div>
-        </div>
+        <div class="message__area"></div>
         <div>
-            <textarea name="" id="" cols="30" rows="1" placeholder="Write a message"></textarea>
+            <textarea id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
         </div>
     </section>
-
-    <!-- script file -->
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/client.js"></script>
 </body>
 
